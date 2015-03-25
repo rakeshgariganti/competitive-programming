@@ -1,11 +1,3 @@
-# Bradley N. Miller, David L. Ranum
-# Introduction to Data Structures and Algorithms in Python
-# Copyright 2005
-# 
-import unittest
-
-# this implementation of binary heap takes key value pairs,
-# we will assume that the keys are all comparable
 
 class PriorityQueue:
     def __init__(self):
@@ -91,27 +83,3 @@ class PriorityQueue:
             if pair[1] == vtx:
                 return True
         return False
-        
-class TestBinHeap(unittest.TestCase):
-    def setUp(self):
-        self.theHeap = PriorityQueue()
-        self.theHeap.add((2,'x'))
-        self.theHeap.add((3,'y'))
-        self.theHeap.add((5,'z'))
-        self.theHeap.add((6,'a'))
-        self.theHeap.add((4,'d'))
-
-
-    def testInsert(self):
-        assert self.theHeap.currentSize == 5
-
-    def testDelmin(self):
-        assert self.theHeap.delMin() == 'x'
-        assert self.theHeap.delMin() == 'y'
-    
-    def testDecKey(self):
-        self.theHeap.decreaseKey('d',1)
-        assert self.theHeap.delMin() == 'd'
-        
-if __name__ == '__main__':
-    unittest.main()
